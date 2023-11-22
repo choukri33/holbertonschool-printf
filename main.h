@@ -7,13 +7,13 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include <string.h>
-
-	typedef struct printf
+//structure
+	typedef struct choice
 	{
-	char type;
+	char letter;
 	int (*print)(va_list ap);
-	};
-
+	}choice_t;
+//function
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list ap);
