@@ -1,68 +1,35 @@
 #include "main.h"
 
-int print_char(va_list ap)
+void print_char(va_list ap, int *char_num)
 {
-	char c;
+	char c = va_arg(ap, int);
 
-	c = va_arg(ap, int);
-
-	_putchar(c);
-
-	return 1;
+	write(1, &c, 1);
+	*char_num++;
 }
 
-int print_str(va_list ap)
+void print_str(va_list ap, int *char_num)
 {
 	char *str;
-	int lenght = 0;
+	int str_len = 0;
 
 	str = va_arg(ap, char *);
 
 	if (str == NULL)
-	return (0);
+	exit(0);
 
-	while (str[lenght] != '\0')
-	{
-	_putchar(str[lenght]);
-	lenght++;
-	}
+	while (str[str_len] != '\0')
+	str_len++;
+	write(1, str, str_len);
+	*char_num += str_len;
 
-	return (1);
 }
+
 void print_prct(int *char_num)
 {
+	char prct = va_arg(ap, int);
 
-		_putchar('%');
-			char_num++;
+	write(1, &prct, 1);
+	*char_num++;
 
-}
-
-{
-
-int print_int(va_list ap)
-{
-        int i;
-        i =va_arg(ap, int);
-        _putchar(i);
-
-        return(1);
-}
-
-{
-
-int p_int_rec(long int n, int count)
-{
-	int nr_digits = count;
-
-	if (n < 0)
-	{
-		_putchar('-');
-		n = (-1) * n;
-	}
-	if (n / 10)
-	{
-		nr_digits = p_int_rec(n / 10, count + 1);
-	}
-	_putchar(n % 10 + '0');
-	return (nr_digits);
 }

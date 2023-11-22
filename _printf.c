@@ -1,9 +1,10 @@
+#include "main.h"
+
 int _printf(const char *format, ...)
 {
 	int i = 0;
 	int char_num = 0;
 
-	/*char *sep = "";*/
 	va_list ap;
 
 	va_start(ap, format);
@@ -29,15 +30,6 @@ int _printf(const char *format, ...)
 
 			else if (format[i] == 's')
 				print_str(ap, &char_num);
-
-			else if (format[i] == 'i')
-				print_int(ap, &char_num);
-
-/**
-* else {_putchar('%');
-*	_putchar(format[i] + 1);
-*	char_num++;}
-*/
 		}
 		format++;
 	}
