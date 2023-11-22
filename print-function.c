@@ -1,35 +1,30 @@
 #include "main.h"
+#include <stdarg.h>
 
-void print_char(va_list ap, int *char_num)
+int print_char(va_list ap)
 {
-	char c = va_arg(ap, int);
-
-	write(1, &c, 1);
-	*char_num++;
+	_putchar(va_arg(ap, int));
+	return(1);
 }
-
-void print_str(va_list ap, int *char_num)
+int print_str(va_list ap)
 {
 	char *str;
-	int str_len = 0;
-
+	int len;
 	str = va_arg(ap, char *);
 
-	if (str == NULL)
-	exit(0);
+	if (str == NULL){
+	return (0);
+	}
 
-	while (str[str_len] != '\0')
-	str_len++;
-	write(1, str, str_len);
-	*char_num += str_len;
-
+	for (len = 0; str[len] != '\0'; len++)
+	{
+	_putchar(str[len]);
+	}
+	return (len);
 }
-
-void print_prct(int *char_num)
+int print_pourcent(__attribute__((unused)) va_list ap)
 {
-	char prct = va_arg(ap, int);
-
-	write(1, &prct, 1);
-	*char_num++;
-
+	_putchar('%');
+	return(1);
 }
+

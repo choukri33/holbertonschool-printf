@@ -1,21 +1,20 @@
-#ifndef _PRINTF_
-#define _PRINTF_
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
-#include <stddef.h>
-#include <unistd.h>
-#include <fcntl.h>
+#include <stdlib.h>
 #include <stdarg.h>
-#include <string.h>
 
-	typedef struct printf
-	{
-	char type;
+typedef struct choice
+{
+	char letter;
 	int (*print)(va_list ap);
-	};
+} choice_t;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list ap);
+int print_str(va_list ap);
+int print_pourcent(va_list ap);
 
 #endif
