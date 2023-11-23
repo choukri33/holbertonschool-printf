@@ -12,12 +12,6 @@
 	int (*print)(va_list ap);
 	}choice_t;
 
-typedef struct choice
-{
-	char letter;
-	int (*print)(va_list ap);
-} choice_t;
-
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list ap);
