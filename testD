@@ -1,0 +1,4 @@
+#include "main.h"
+
+**/
+*priny_decimal - print a decimal (base 1O) number
