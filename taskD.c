@@ -5,19 +5,29 @@
  * @count: digits counter
  * Return: return the digits counter
 */
-int p_int_rec(long int n, int count)
-{
-	int nr_digits = count;
 
-	if (n < 0)
-	{
-		_putchar('-');
-		n = (-1) * n;
-	}
+int print_recursion_decimal(int n)
+{
+	int i = 1;
 	if (n / 10)
 	{
-		nr_digits = p_int_rec(n / 10, count + 1);
+		i += print_recursion_decimal(n / 10);
 	}
 	_putchar(n % 10 + '0');
-	return (nr_digits);
+	return (i);
+}
+
+int print_decimal(va_list ap)
+{
+	int i = 0, n = 0;
+	n = va_arg(ap, int);
+	if (n < 0)
+	{
+		_putchar ('-');
+		n = (-1)* n;
+		i++;
+	};
+	i += print_recursion_decimal(n);
+	return (i);
+
 }
