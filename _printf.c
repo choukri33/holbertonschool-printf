@@ -10,6 +10,8 @@ int _printf(const char *format, ...)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_pourcent},
+		{'d', print_decimal},
+		{'i', print_decimal},
 		{'\0', NULL},
 	};
 
